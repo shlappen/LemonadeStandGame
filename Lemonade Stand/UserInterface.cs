@@ -8,6 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     static class UserInterface
     {
+        //this is for after the player has selected an item to get
         public static int GetNumberOfItems(string itemsToGet)
         {
             bool userInputIsAnInteger = false;

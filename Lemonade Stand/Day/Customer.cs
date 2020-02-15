@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Day
+    class Customer
     {
-        public Weather weather;
-        public List<Customer> customers;
+        public string name;
+
+        public Customer(string name)
+        {
+            this.name = name;
+        }
     }
 }

@@ -43,27 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cup.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Day.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="IceCube.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Lemon.cs" />
-    <Compile Include="Pitcher.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Item\Cup.cs" />
+    <Compile Include="Day\Customer.cs" />
+    <Compile Include="Day\Day.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Item\IceCube.cs" />
+    <Compile Include="Player\Inventory.cs" />
+    <Compile Include="Item\Item.cs" />
+    <Compile Include="Item\Lemon.cs" />
+    <Compile Include="Player\Pitcher.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs" />
-    <Compile Include="Store.cs" />
-    <Compile Include="SugarCube.cs" />
+    <Compile Include="Player\Recipe.cs" />
+    <Compile Include="Game\Store.cs" />
+    <Compile Include="Item\SugarCube.cs" />
     <Compile Include="UserInterface.cs" />
-    <Compile Include="Wallet.cs" />
-    <Compile Include="Weather.cs" />
+    <Compile Include="Player\Wallet.cs" />
+    <Compile Include="Day\Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
