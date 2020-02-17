@@ -17,6 +17,16 @@ namespace LemonadeStand_3DayStarter
             {
                 return money;
             }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    value = 0;
+
+                }
+                money = value;
+            }
         }
 
         public Wallet()

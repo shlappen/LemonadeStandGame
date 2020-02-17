@@ -8,6 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     static class UserInterface
     {
+
         //this is for after the player has selected an item to get
         public static int GetNumberOfItems(string itemsToGet)
         {
@@ -17,7 +18,7 @@ namespace LemonadeStand_3DayStarter
             while (!userInputIsAnInteger || quantityOfItem < 0)
             {
                 Console.WriteLine("How many " + itemsToGet + " would you like to buy?");
-                Console.WriteLine("Please enter a positive integer (or 0 to cancel):");
+                Console.WriteLine("Please enter a positive integer");
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }
