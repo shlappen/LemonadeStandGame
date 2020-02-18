@@ -41,11 +41,9 @@ namespace LemonadeStand_3DayStarter
             };
         }
 
-        public void LikelihoodToBuy()
+        public void GetWillBuy()
         {
-
         }
-
         
     }
 }

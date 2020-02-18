@@ -1,0 +1,10 @@
+10% will buy no matter what
+generate 10 random numbers
+if number = 1, customer bool will buy = true
+
+
+if temperature is greater than 60
+increase chance by 30%
+generate 
+
+if temperature is greater than 60 and it's sunny

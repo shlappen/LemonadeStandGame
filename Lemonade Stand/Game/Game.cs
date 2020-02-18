@@ -13,9 +13,11 @@ namespace LemonadeStand_3DayStarter
         int currentDay;
         Day day;
         Store store;
+        Random random;
         
         public Game()
         {
+            random = new Random();
             currentDay = 0;
             player = new Player();
             store = new Store();
@@ -48,16 +50,22 @@ namespace LemonadeStand_3DayStarter
 
         public void RunWeek()
         {
+            NewDay();
+            GoToStore();
+
+        }
+
+        public void NewDay()
+        {
             Console.WriteLine("Hi " + player.name);
             day = days[currentDay];
             day.weather = new Weather(0, "");
             day.weather.condition = day.weather.SetWeatherCondition();
             day.weather.temperature = day.weather.SetTemperature();
-            currentDay++;
-            Console.WriteLine("Day {0}: {1}", currentDay, days[currentDay].name);
+            Console.WriteLine("Day {0}: {1}", currentDay + 1, days[currentDay].name);
             Console.WriteLine("Forecast: {1} degrees and {0}", day.weather.condition, day.weather.temperature);
             Console.WriteLine();
-            GoToStore();
+            SetChance();
 
         }
 
@@ -70,10 +78,10 @@ namespace LemonadeStand_3DayStarter
 
         public void DisplayStoreOptions()
         {
-                Console.WriteLine("Press 1 to buy lemons for 50 cents per lemon.");
-                Console.WriteLine("Press 2 to buy sugarcubes for 10 cents per cube.");
-                Console.WriteLine("Press 3 to buy ice cubes for 1 cent per cube.");
-                Console.WriteLine("Press 4 to buy cups for 25 cents per cup.");
+                Console.WriteLine("1) Buy lemons. 50 cents per unit.");
+                Console.WriteLine("2) Buy sugar cubes. 10 cents per unit.");
+                Console.WriteLine("3) Buy ice cubes.  1 cent per unit.");
+                Console.WriteLine("4) Buy cups.  25 cents per unit.");
             Console.WriteLine("Press 5 to leave store.");
         }
 
@@ -129,12 +137,64 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine();
         }
 
-        public void SetRecipe()
+        public void NewRecipe()
         {
+            //player.recipe.amountOfIceCubes;
+            //player.recipe.amountOfLemons;
+            //player.recipe.amountOfSugarCubes;
+        }
+
+        public int Randomizer()
+        {
+            int result = random.Next(0, 11);
+            return result;
+        }
+
+        public void SetChance()
+        {
+            int modifier = 1;
+            if (day.weather.temperature >= 70)
+            {
+                modifier += 4;
+            }
+            if (day.weather.temperature >= 90)
+            {
+                modifier += 6;
+            }
+            if (day.weather.condition == "Sunny")
+            {
+                modifier += 2;
+            }
+            if (day.weather.condition == "Rainy")
+            {
+                modifier -= 2;
+            }
+            if (day.weather.condition == "Cloudy")
+            {
+                modifier -= 1;
+            }
+
+            SetChance(modifier);
             
         }
 
-        public void RunGame()
+                
+                public void SetChance(int modifier)
+                {
+
+                    for (int i = 0; i < day.customers.Count; i++)
+                    {
+                        int result = Randomizer();
+                        if (result < modifier)
+                        {
+                            day.customers[i].willBuy = true;
+                        }
+                        Console.WriteLine(day.customers[i].willBuy);
+                    }
+                }
+
+
+                public void RunGame()
         {
             Console.WriteLine("Welcome to your Lemonade Stand");
             Console.WriteLine();
