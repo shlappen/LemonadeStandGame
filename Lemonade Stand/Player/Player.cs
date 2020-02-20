@@ -40,7 +40,7 @@ namespace LemonadeStand_3DayStarter
         public void GoToStore(Store store, Player player)
         {
             DisplayInventory();
-            Console.WriteLine("Your money: ${0}", wallet.Money);
+            wallet.DisplayMoney();
             BuySupplies(store, player);
         }
 
@@ -154,6 +154,49 @@ namespace LemonadeStand_3DayStarter
 
             }
             return recipe.PricePerCup;
+        }
+
+        public void FillPitcher(int purchases)
+        {
+            if (purchases > 0)
+            {
+                if (purchases % 4 == 0)
+                {
+                    inventory.lemons.RemoveRange(0, recipe.amountOfLemons);
+                    inventory.sugarCubes.RemoveRange(0, recipe.amountOfSugarCubes);
+                }
+            }
+        }
+
+        public void SellLemonade(Day day)
+        {
+            double i = day.random.Next(day.demandModifier, 21);
+            for (int j = 0; j < i; j++)
+            {
+                day.customers[j].willBuy = true;
+                day.customers[j].maxWillingToPay += day.demandModifier / 2;
+
+                if ((recipe.PricePerCup <= day.customers[j].maxWillingToPay)
+                    && (day.customers[j].willBuy = true)
+                                && (inventory.lemons.Count >= recipe.amountOfLemons)
+                                && (inventory.sugarCubes.Count >= recipe.amountOfSugarCubes)
+                                && (inventory.iceCubes.Count >= recipe.amountOfIceCubes)
+                                        && (inventory.cups.Count > 0))
+                {
+                    inventory.cups.RemoveAt(0);
+                    inventory.iceCubes.RemoveRange(0, recipe.amountOfIceCubes);
+                    day.purchases++;
+                    FillPitcher(day.purchases);
+                    Console.WriteLine();
+                    Console.WriteLine(day.customers[j].name + " purchased a lemonade!");
+                }
+            }
+            if (day.purchases > 0 && day.purchases < 4)
+            {
+                inventory.lemons.RemoveRange(0, recipe.amountOfLemons);
+                inventory.sugarCubes.RemoveRange(0, recipe.amountOfSugarCubes);
+            }
+
         }
     }
 }

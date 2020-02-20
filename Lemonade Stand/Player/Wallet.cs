@@ -11,23 +11,23 @@ namespace LemonadeStand_3DayStarter
         private double money;
 
         // property - TBD
-        public double Money
-        {
-            get
-            {
-                return money;
-            }
+        //double Money
+        //{
+        //    get
+        //    {
+        //        return money;
+        //    }
 
-            set
-            {
-                if (value <= 0)
-                {
-                    value = 0;
+        //    set
+        //    {
+        //        if (value <= 0)
+        //        {
+        //            value = 0;
 
-                }
-                money = value;
-            }
-        }
+        //        }
+        //        money = value;
+        //    }
+        //}
 
         public Wallet()
         {
@@ -36,16 +36,29 @@ namespace LemonadeStand_3DayStarter
 
         public void PayMoneyForItems(double transactionAmount)
         {
-            money -= transactionAmount;
+            if(money >=  transactionAmount)
+            {
+                money -= transactionAmount;
+            }
+            else
+            {
+                Console.WriteLine("Not enough money to perform transaction!");
+            }
+            
         }
 
-        public void ReceiveMoneyFromCustomers(Player player, double purchases)
+        public void ReceiveMoneyFromCustomers(Player player, Day day)
         {
             Console.WriteLine();
-            double profit = (purchases * player.recipe.PricePerCup);
-            Console.WriteLine("Purchases: {0} Profit: {1}", purchases, profit);
-            player.wallet.Money += profit;
+            double profit = (day.purchases * player.recipe.PricePerCup);
+            Console.WriteLine("Purchases: {0} Profit: {1}", day.purchases, profit);
+            money += profit;
             Console.WriteLine();
+        }
+
+        public void DisplayMoney()
+        {
+            Console.WriteLine("Your money: ${0}", money);
         }
     }
 }

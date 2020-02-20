@@ -28,61 +28,38 @@ namespace LemonadeStand_3DayStarter
         {
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
             double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
-            if(player.wallet.Money >= transactionAmount)
-            {
+
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
-            }
-            else
-            {
-                Console.WriteLine("Not enough money to perform transaction!");
-            }
+
         }
 
         public void SellSugarCubes(Player player)
         {
             int sugarToPurchase = UserInterface.GetNumberOfItems("sugar cubes");
             double transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
-            if(player.wallet.Money >= transactionAmount)
-            {
+
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
-            }
-            else
-            {
-                Console.WriteLine("Not enough money to perform transaction!");
-            }
+
         }
 
         public void SellIceCubes(Player player)
         {
             int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
             double transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
-            if(player.wallet.Money >= transactionAmount)
-            {
+
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
-            }
-            else
-            {
-                Console.WriteLine("Not enough money to perform transaction!");
-            }
         }
 
         public void SellCups(Player player)
         {
             int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
             double transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
-            if(player.wallet.Money >= transactionAmount)
-            {
+ 
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
-            }
-            else
-            {
-                Console.WriteLine("Not enough money to perform transaction!");
-
-            }
         }
 
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)

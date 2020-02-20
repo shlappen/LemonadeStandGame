@@ -43,7 +43,7 @@ namespace LemonadeStand_3DayStarter
 
         public void RunDay()
         {
-            Console.WriteLine("Hi " + player.name);
+            Console.WriteLine("Hi " + player.name + "!");
             day = days[currentDay];
             day.weather = new Weather(0, "");
             day.weather.condition = day.weather.SetWeatherCondition();
@@ -62,6 +62,10 @@ namespace LemonadeStand_3DayStarter
 
             }
             day.SetDemand(player);
+            player.SellLemonade(day);
+            day.SpoilLemonsLeftInPitcher(player);
+            UserInterface.NotEnoughInventoryCheck(player);
+            player.wallet.ReceiveMoneyFromCustomers(player, day);
         }
 
         public void RunGame()

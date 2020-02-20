@@ -10,15 +10,15 @@ namespace LemonadeStand_3DayStarter
     {
         public string name;
         public bool willBuy;
-        public double maxWillingToPay;
+        public int maxWillingToPay;
 
         public Customer(string name)
         {
             this.name = name;
             willBuy = false;
             maxWillingToPay = 1;
-        }
 
+        }
 
 
     }
