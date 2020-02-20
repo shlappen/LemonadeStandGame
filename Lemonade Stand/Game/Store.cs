@@ -88,31 +88,14 @@ namespace LemonadeStand_3DayStarter
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)
         {
             double transactionAmount = itemCount * itemPricePerUnit;
+            Console.WriteLine();
             Console.WriteLine("Transaction amount: " + "$" + transactionAmount);
+            Console.WriteLine();
             return transactionAmount;
         }
 
         private void PerformTransaction(Wallet wallet, double transactionAmount)
         {
-            Console.WriteLine("Press Y to proceed, N to cancel.");
-            bool isValid = false;
-            string input = Console.ReadLine().ToLower();
-                switch (input)
-            {
-                case "y":
-                case "yes":
-                    isValid = true;
-                    break;
-                case "n":
-                case "no":
-                    transactionAmount = 0;
-                    isValid = true;
-                    break;
-                default: Console.WriteLine("Press Y to proceed, N to cancel.");
-                    break;
-
-            }while (isValid == false) ;
-
             wallet.PayMoneyForItems(transactionAmount);
         }
     }

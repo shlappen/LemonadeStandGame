@@ -38,5 +38,14 @@ namespace LemonadeStand_3DayStarter
         {
             money -= transactionAmount;
         }
+
+        public void ReceiveMoneyFromCustomers(Player player, double purchases)
+        {
+            Console.WriteLine();
+            double profit = (purchases * player.recipe.PricePerCup);
+            Console.WriteLine("Purchases: {0} Profit: {1}", purchases, profit);
+            player.wallet.Money += profit;
+            Console.WriteLine();
+        }
     }
 }

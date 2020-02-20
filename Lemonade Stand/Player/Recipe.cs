@@ -12,13 +12,15 @@ namespace LemonadeStand_3DayStarter
         public int amountOfSugarCubes;
         public int amountOfIceCubes;
         double pricePerCup;
+        public double PricePerCup;
 
 
-        public void SetNewRecipe()
+        public Recipe()
         {
-
+            amountOfLemons = 0;
+            amountOfSugarCubes = 0;
+            amountOfIceCubes = 0;
+            pricePerCup = -1;
         }
     }
-
-
 }
