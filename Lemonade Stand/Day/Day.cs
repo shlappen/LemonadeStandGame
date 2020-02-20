@@ -85,16 +85,14 @@ namespace LemonadeStand_3DayStarter
         {
             for (int j = 0; j < customers.Count; j++)
             {
-                int i = random.Next(1, 5);
-                customers[j].maxWillingToPay = i / 2;
+                int i = random.Next(1, 3);
+                customers[j].maxWillingToPay = i;
             }
         }
 
         public void SpoilLemonsLeftInPitcher(Player player)
         {
-
-            if (purchases >= 4 && (player.inventory.lemons.Count < player.recipe.amountOfLemons
-             ))
+            if (purchases >= 4 && (player.inventory.lemons.Count < player.recipe.amountOfLemons))
             {
                 int remainder = purchases % 4;
                 player.inventory.lemons.RemoveRange(0, remainder);

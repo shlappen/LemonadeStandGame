@@ -8,3 +8,26 @@ increase chance by 30%
 generate 
 
 if temperature is greater than 60 and it's sunny
+
+
+use modifiers to increase the minimum value of random generator
+then use the upper bound as i for the loop 
+
+
+use the modifier variable for both price and weather
+?
+
+set random maximum price for each customer from 1 to 10 dollars
+increase that price with modifier
+
+move store to player
+
+
+//fix exception
+recipe is greater than number of items in inventory
+
+Use of SOLID principles:  
+The Single Responsiblity Principle is best exemplified in my project in the wallet class.  Since the member variable "money" is private, access to it by any other class except the wallet class is prevented--effectively absolving all other classes of the responsibility to change this variable.  The wallet class has the single responsibility of dealing with any change to the player's "money" variable.
+One can observe the Liskov Substitution Principle in the design of the "Item" parent class and its four child subclasses:  Lemon, SugarCube, IceCube, and Cup.  Each child of the "item" parent class can be used in the same way if it were substituted for its parent class.
+Lastly, if requirements dictated that, for example, the number of customers needed to increase, the code would be able to handle it.  Since the upper bound of the built-in random.Next method is both: 1) defined by the number of customers that exist in the customer list.  2) used to determine maximum amount of customers who will buy lemonade,
+this functionality is closed to modification--there is no need to alter existing code to achieve different results--and open to extension, thus adhering to the Open/Closed Principle.

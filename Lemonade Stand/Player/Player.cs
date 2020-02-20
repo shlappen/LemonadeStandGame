@@ -170,7 +170,7 @@ namespace LemonadeStand_3DayStarter
 
         public void SellLemonade(Day day)
         {
-            double i = day.random.Next(day.demandModifier, 21);
+            double i = day.random.Next(day.demandModifier, day.customers.Count);
             for (int j = 0; j < i; j++)
             {
                 day.customers[j].willBuy = true;
